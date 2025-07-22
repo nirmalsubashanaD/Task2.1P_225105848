@@ -6,12 +6,11 @@ require('dotenv').config();
 const app = express();
 const PORT = 3000;
 
-// Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
-// GET: homepage with email form
+// GET homepage with email form
 app.get('/', (req, res) => {
   res.send(`
   <!DOCTYPE html>
@@ -34,7 +33,7 @@ app.get('/', (req, res) => {
 `);
 });
 
-// POST: send welcome email
+// POST send welcome email
 app.post('/subscribe', async (req, res) => {
   const { email } = req.body;
 
